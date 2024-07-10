@@ -1,0 +1,6 @@
+<div class="grid-container">
+    <a class="card" *ngFor="let item of data" [routerLink]="['/card-detail', item.id]">
+      <h3>{{ item.title }}</h3>
+      <p>{{ item.description }}</p>
+    </a>
+</div>

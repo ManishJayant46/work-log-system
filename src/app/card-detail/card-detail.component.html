@@ -1,0 +1,7 @@
+<div *ngIf="card">
+    <h2>{{ card.title }}</h2>
+    <p>{{ card.description }}</p>
+  </div>
+  <div *ngIf="!card">
+    <p>Card not found.</p>
+  </div>
