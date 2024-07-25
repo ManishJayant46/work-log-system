@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from '../data.service';
 import { CommonModule } from '@angular/common';
+import { GraphqlService } from '../graphql.service';
 
 @Component({
   selector: 'app-card-detail',
@@ -11,18 +11,43 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
 })
 export class CardDetailComponent implements OnInit {
-  card: { id: string, title: string, description: string } | undefined; // Initialize as undefined
+  
+  data?: Array<{}>;
+  cardId: string | null = null;
 
-  constructor(
-    private route: ActivatedRoute,
-    private dataService: DataService
-  ) {}
+  constructor(private graphqlService: GraphqlService, private router: ActivatedRoute) {}
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
-      const id = params['id'];
-      this.card = this.dataService.getCardById(id);
-    });
+    this.cardId = this.router.snapshot.paramMap.get('id');
+
+    const JOBS_QUERY = `
+      query MyQuery{
+        getJobsByLocationId(id: ${this.cardId}) {
+          id
+          name
+          materialConsumed
+          status
+          subJobs {
+            name
+            status
+          }
+          workers {
+            name
+            status
+          }
+        }
+      }
+    `;
+
+    this.graphqlService.query(JOBS_QUERY)
+      .subscribe({
+        next: (response) => {
+          this.data = response.data.getJobsByLocationId;
+        },
+        error: (error) => {
+          console.error('Error fetching jobs data', error);
+        }
+      });
   }
 }
 

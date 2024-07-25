@@ -1,7 +1,9 @@
-<div *ngIf="card">
-    <h2>{{ card.title }}</h2>
-    <p>{{ card.description }}</p>
-  </div>
-  <div *ngIf="!card">
-    <p>Card not found.</p>
-  </div>
+  <div class="grid-container">
+    <a class="card" *ngFor="let item of data">
+      <h3>{{ item.name }}</h3>
+      <!-- <p>{{ item.address }}</p>
+      <p>{{ item.activeJobCount }} / {{ item.jobCount }}</p>
+      <p>{{ item.activeWorkerCount }} / {{ item.workerCount }}</p>
+      <p>{{ item.materialAvailable }}</p> -->
+    </a>
+</div>

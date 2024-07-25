@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { DataService } from '../data.service';
 import { RouterModule } from '@angular/router';
+import { GraphqlService } from '../graphql.service';
 
 @Component({
   selector: 'app-monitoring',
@@ -12,12 +12,38 @@ import { RouterModule } from '@angular/router';
 })
 export class MonitoringComponent implements OnInit{
 
-  data!: Array<{ id: string, title: string, description: string }>;
+  data?: Array<{}>;
 
-  constructor(private dataService: DataService) {}
+  constructor(private graphqlService: GraphqlService, private router: RouterModule) {}
+
+
 
   ngOnInit() {
-    this.data = this.dataService.getData();
+
+    const MONITORING_QUERY = `
+    mutation MyMutation {
+      getCuratedLocationData {
+        activeJobCount
+        activeWorkerCount
+        address
+        jobCount
+        id
+        materialAvailable
+        name
+        updatedAt
+        workerCount
+      }
+    }
+  `;
+    this.graphqlService.mutate(MONITORING_QUERY)
+      .subscribe({
+        next: (response) => {
+          this.data = response.data.getCuratedLocationData;
+        },
+        error: (error) => {
+          console.error('Error fetching monitoring data', error);
+        }
+      });
   }
 
 }
