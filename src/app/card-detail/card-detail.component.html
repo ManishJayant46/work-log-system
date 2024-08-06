@@ -1,9 +1,9 @@
   <div class="grid-container">
-    <a class="card" *ngFor="let item of data">
+    <a class="card" *ngFor="let item of data; let i = index"  [ngStyle]="{'background-color': getCardColor(i)}" [routerLink]="['/job-detail', item.id, item.name]">
       <h3>{{ item.name }}</h3>
-      <!-- <p>{{ item.address }}</p>
-      <p>{{ item.activeJobCount }} / {{ item.jobCount }}</p>
-      <p>{{ item.activeWorkerCount }} / {{ item.workerCount }}</p>
-      <p>{{ item.materialAvailable }}</p> -->
+      <p>{{ item.materialConsumed }}</p>
+      <p>Active Jobs: {{ item.activeJobCount }}/{{ item.totalJobCount }}</p>
+    <p>Active Workers: {{ item.activeWorkerCount }}/{{ item.totalWorkerCount }}</p>
+    <p>Materials Consumed: {{ item.materialConsumed }}</p>
     </a>
 </div>

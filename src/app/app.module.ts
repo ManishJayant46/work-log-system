@@ -9,6 +9,7 @@ import { HomeComponent } from './home/home.component';
 import { MonitoringComponent } from './monitoring/monitoring.component';
 //import { ConfigurationComponent } from './configuration/configuration.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
+import { JobdetailComponent } from './jobdetail/jobdetail.component';
 import { appRoutes } from './app.routes';
 
 @NgModule({
@@ -18,7 +19,8 @@ import { appRoutes } from './app.routes';
     HomeComponent,
     MonitoringComponent,
     //ConfigurationComponent,
-    CardDetailComponent
+    CardDetailComponent,
+    JobdetailComponent
   ],
   imports: [
     BrowserModule,

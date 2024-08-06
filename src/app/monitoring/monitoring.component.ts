@@ -12,11 +12,10 @@ import { GraphqlService } from '../graphql.service';
 })
 export class MonitoringComponent implements OnInit{
 
-  data?: Array<{}>;
+  data?: any;
+  cardColors: string[] = ['#E6D7FF', '#bae1ff', '#d4ffea'];
 
   constructor(private graphqlService: GraphqlService, private router: RouterModule) {}
-
-
 
   ngOnInit() {
 
@@ -44,6 +43,10 @@ export class MonitoringComponent implements OnInit{
           console.error('Error fetching monitoring data', error);
         }
       });
+  }
+
+  getCardColor(index: number): string {
+    return this.cardColors[index % this.cardColors.length];
   }
 
 }

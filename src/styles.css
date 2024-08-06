@@ -1,7 +1,7 @@
 
 
 body {
-    background-color: #c7c54f; /* Replace with your desired background color */
+    background-color: #ffffff; /* Replace with your desired background color */
     margin: 0;
     font-family: Arial, sans-serif;
   }
@@ -10,5 +10,40 @@ body {
     height: 100%;
   }
   
-  /* Additional global styles can go here */
+  .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.card {
+    display: block;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s;
+    height: 200px;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.card h3 {
+    margin: 0 0 10px 0;
+}
+
+.card p {
+    margin: 0;
+}
+  
+  
+@media (max-width: 600px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+    }
+}
   

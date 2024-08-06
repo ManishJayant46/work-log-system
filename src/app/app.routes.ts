@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { MonitoringComponent } from './monitoring/monitoring.component';
 //import { ConfigurationComponent } from './configuration/configuration.component';
 import { CardDetailComponent } from './card-detail/card-detail.component';
+import { JobdetailComponent } from './jobdetail/jobdetail.component';
 
 export const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -11,5 +12,6 @@ export const appRoutes: Routes = [
   { path: 'monitoring', component: MonitoringComponent },
   //{ path: 'configuration', component: ConfigurationComponent },
   { path: 'card-detail/:id', component: CardDetailComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' }
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'job-detail/:id/:name', component: JobdetailComponent }
 ];

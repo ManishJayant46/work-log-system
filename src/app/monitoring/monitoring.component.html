@@ -1,5 +1,5 @@
 <div class="grid-container">
-    <a class="card" *ngFor="let item of data" [routerLink]="['/card-detail', item.id]">
+    <a class="card" *ngFor="let item of data; let i = index"  [ngStyle]="{'background-color': getCardColor(i)}" [routerLink]="['/card-detail', item.id]">
       <h3>{{ item.name }}</h3>
       <p>{{ item.address }}</p>
       <p>{{ item.activeJobCount }} / {{ item.jobCount }}</p>
