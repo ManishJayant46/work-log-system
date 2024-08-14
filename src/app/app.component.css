@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  app-header, router-outlet {
+    flex: 1;
+    border: 1px solid #ccc; /* for visibility */
+    padding: 10px;
+  }

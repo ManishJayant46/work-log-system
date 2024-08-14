@@ -3,11 +3,12 @@ import { GraphqlService } from '../graphql.service';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule,NgIf],
+  imports: [FormsModule,NgIf, CommonModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -37,11 +38,15 @@ export class LoginComponent {
             this.router.navigate(['/home']);
           } else {
             this.errorMessage = 'Incorrect credentials';
+            this.username = '';
+            this.password = '';
           }
         },
         error: (error) => {
           console.error('Login error', error);
           this.errorMessage = 'An error occurred. Please try again.';
+          this.username = '';
+          this.password = '';
         },
       });
   }

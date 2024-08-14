@@ -1,9 +1,31 @@
-  <div class="grid-container">
-    <a class="card" *ngFor="let item of data; let i = index"  [ngStyle]="{'background-color': getCardColor(i)}" [routerLink]="['/job-detail', item.id, item.name]">
-      <h3>{{ item.name }}</h3>
+<div class="grid-container">
+  <a class="card" *ngFor="let item of data; let i = index" [ngStyle]="{'background-color': getCardColor(i)}" [routerLink]="['/job-detail', item.id, item.name]">
+    <h3 class="card-title">{{ item.name }}</h3>
+    <p class="card-address">{{ item.status ? 'Active' : 'Inactive' }}</p>
+    <hr />
+    <div class="card-info-row">
+      <div class="card-info">
+        <p>Active Jobs</p>
+        <p>{{ item.activeJobCount }}</p>
+      </div>
+      <div class="card-info">
+        <p>All Jobs</p>
+        <p>{{ item.totalJobCount }}</p>
+      </div>
+    </div>
+    <div class="card-info-row">
+      <div class="card-info">
+        <p>Active Workers</p>
+        <p>{{ item.activeWorkerCount }}</p>
+      </div>
+      <div class="card-info">
+        <p>Total Workers</p>
+        <p>{{ item.totalWorkerCount }}</p>
+      </div>
+    </div>
+    <div class="card-info">
+      <p>Material Consumed</p>
       <p>{{ item.materialConsumed }}</p>
-      <p>Active Jobs: {{ item.activeJobCount }}/{{ item.totalJobCount }}</p>
-    <p>Active Workers: {{ item.activeWorkerCount }}/{{ item.totalWorkerCount }}</p>
-    <p>Materials Consumed: {{ item.materialConsumed }}</p>
-    </a>
+    </div>
+  </a>
 </div>

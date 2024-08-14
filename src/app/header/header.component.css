@@ -1,0 +1,18 @@
+
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 10px 20px 10px 10px;
+    background-color: #ffffff; /* Adjust the background color as needed */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure it stays on top */
+  }
+  
+  .logo {
+    height: 80px; /* Adjust the size as needed */
+    padding-right: 40px;
+  }
+  

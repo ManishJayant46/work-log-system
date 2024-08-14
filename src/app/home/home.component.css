@@ -1,33 +1,56 @@
 .home-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-  }
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: row; /* Change to row to place buttons side by side */
+  gap: 10px; /* Add space between buttons */
+}
+
+.btn {
+  font-family: Montserrat;
+  display: flex;
+  flex-direction: column; /* Ensure icon and text are vertically aligned */
+  justify-content: center;
+  align-items: center;
+  width: 300px; /* Adjust width for square buttons */
+  height: 300px; /* Adjust height for square buttons */
+  padding: 20px;
+  margin: 10px;
+  font-size: 20px;
+  background-color: #7BB3D7;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 10px; /* Adjust as needed for square corners */
+  text-align: center;
+}
+
+.btn i {
+  font-size: 150px; /* Adjust icon size */
+  margin-bottom: 10px; /* Space between icon and text */
+}
+
+.btn span {
+  font-size: 35px; /* Adjust text size */
+  font-weight: light;
+}
+
+.btn:hover {
+  background: #fff;
+  color: #7BB3D7;
+  border: 1px solid #7BB3D7;
+}
+
+@media (max-width: 600px) {
   .btn {
-    width: 90%;
-    max-width: 300px;
-    padding: 20px;
-    margin: 10px;
-    font-size: 20px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    text-align: center;
+    width: 100px; /* Adjust for smaller screens */
+    height: 100px; /* Adjust for smaller screens */
+    font-size: 18px;
+    padding: 15px;
   }
   
-  .btn:hover {
-    background-color: #0056b3;
+  .btn i {
+    font-size: 30px; /* Adjust icon size for smaller screens */
   }
-  
-  @media (max-width: 600px) {
-    .btn {
-      font-size: 18px;
-      padding: 15px;
-    }
-  }
-  
+}
